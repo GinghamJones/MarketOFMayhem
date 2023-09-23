@@ -1,0 +1,306 @@
+[gd_scene load_steps=39 format=3 uid="uid://dklaxvd7swq26"]
+
+[ext_resource type="Script" path="res://Characters/character.gd" id="1_ldc1x"]
+[ext_resource type="PackedScene" uid="uid://dxvmimacblilw" path="res://Characters/Meat/meat_special.tscn" id="2_5d13c"]
+[ext_resource type="Script" path="res://Characters/Resources/CharacterAnimationTree.gd" id="5_hokk0"]
+[ext_resource type="AudioStream" uid="uid://bxdqmvjxnmoyf" path="res://kenney impact sounds/impact_plate_heavy_004.ogg" id="6_savac"]
+[ext_resource type="Texture2D" uid="uid://bw8ngcjpcab0j" path="res://addons/kenney_particle_pack/smoke_04.png" id="6_tpgap"]
+[ext_resource type="Script" path="res://Characters/Resources/HealDetectArea.gd" id="7_e3b4m"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g0x83"]
+radius = 0.455959
+height = 2.01739
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rgjwp"]
+animation = &"Character_Attack_Left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_b12cm"]
+animation = &"Character_Attack_Right"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pcb33"]
+animation = &"Character_Block"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_fpfb7"]
+filter_enabled = true
+filters = ["Meat_Female/Skeleton3D:Chest", "Meat_Female/Skeleton3D:Head", "Meat_Female/Skeleton3D:forearm.L", "Meat_Female/Skeleton3D:forearm.R", "Meat_Female/Skeleton3D:hand.L", "Meat_Female/Skeleton3D:hand.R", "Meat_Female/Skeleton3D:shoulder.L", "Meat_Female/Skeleton3D:shoulder.R", "Meat_Female/Skeleton3D:spine.005", "Meat_Female/Skeleton3D:upper_arm.L", "Meat_Female/Skeleton3D:upper_arm.R", "metarig/Skeleton3D:f_index.01.L", "metarig/Skeleton3D:f_index.01.R", "metarig/Skeleton3D:f_index.02.L", "metarig/Skeleton3D:f_index.02.R", "metarig/Skeleton3D:f_index.03.L", "metarig/Skeleton3D:f_index.03.R", "metarig/Skeleton3D:f_middle.01.L", "metarig/Skeleton3D:f_middle.01.R", "metarig/Skeleton3D:f_middle.02.L", "metarig/Skeleton3D:f_middle.02.R", "metarig/Skeleton3D:f_middle.03.L", "metarig/Skeleton3D:f_middle.03.R", "metarig/Skeleton3D:f_pinky.01.L", "metarig/Skeleton3D:f_pinky.01.R", "metarig/Skeleton3D:f_pinky.02.L", "metarig/Skeleton3D:f_pinky.02.R", "metarig/Skeleton3D:f_pinky.03.L", "metarig/Skeleton3D:f_pinky.03.R", "metarig/Skeleton3D:f_ring.01.L", "metarig/Skeleton3D:f_ring.01.R", "metarig/Skeleton3D:f_ring.02.L", "metarig/Skeleton3D:f_ring.02.R", "metarig/Skeleton3D:f_ring.03.L", "metarig/Skeleton3D:f_ring.03.R", "metarig/Skeleton3D:forearm.L", "metarig/Skeleton3D:forearm.R", "metarig/Skeleton3D:hand.L", "metarig/Skeleton3D:hand.R", "metarig/Skeleton3D:palm.01.L", "metarig/Skeleton3D:palm.01.R", "metarig/Skeleton3D:palm.02.L", "metarig/Skeleton3D:palm.02.R", "metarig/Skeleton3D:palm.03.L", "metarig/Skeleton3D:palm.03.R", "metarig/Skeleton3D:palm.04.L", "metarig/Skeleton3D:palm.04.R", "metarig/Skeleton3D:shoulder.L", "metarig/Skeleton3D:shoulder.R", "metarig/Skeleton3D:spine.003", "metarig/Skeleton3D:spine.005", "metarig/Skeleton3D:spine.006", "metarig/Skeleton3D:thumb.01.L", "metarig/Skeleton3D:thumb.01.R", "metarig/Skeleton3D:thumb.02.L", "metarig/Skeleton3D:thumb.02.R", "metarig/Skeleton3D:thumb.03.L", "metarig/Skeleton3D:thumb.03.R", "metarig/Skeleton3D:upper_arm.L", "metarig/Skeleton3D:upper_arm.R"]
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_jjxqn"]
+filters = ["Meat_Female/Skeleton3D:Chest", "Meat_Female/Skeleton3D:Head", "Meat_Female/Skeleton3D:Hips", "Meat_Female/Skeleton3D:forearm.L", "Meat_Female/Skeleton3D:forearm.R", "Meat_Female/Skeleton3D:hand.L", "Meat_Female/Skeleton3D:hand.R", "Meat_Female/Skeleton3D:shoulder.L", "Meat_Female/Skeleton3D:shoulder.R", "Meat_Female/Skeleton3D:spine.001", "Meat_Female/Skeleton3D:spine.002", "Meat_Female/Skeleton3D:spine.005", "Meat_Female/Skeleton3D:upper_arm.L", "Meat_Female/Skeleton3D:upper_arm.R", "metarig/Skeleton3D:f_index.01.L", "metarig/Skeleton3D:f_index.01.R", "metarig/Skeleton3D:f_index.02.L", "metarig/Skeleton3D:f_index.02.R", "metarig/Skeleton3D:f_index.03.L", "metarig/Skeleton3D:f_index.03.R", "metarig/Skeleton3D:f_middle.01.L", "metarig/Skeleton3D:f_middle.01.R", "metarig/Skeleton3D:f_middle.02.L", "metarig/Skeleton3D:f_middle.02.R", "metarig/Skeleton3D:f_middle.03.L", "metarig/Skeleton3D:f_middle.03.R", "metarig/Skeleton3D:f_pinky.01.L", "metarig/Skeleton3D:f_pinky.01.R", "metarig/Skeleton3D:f_pinky.02.L", "metarig/Skeleton3D:f_pinky.02.R", "metarig/Skeleton3D:f_pinky.03.L", "metarig/Skeleton3D:f_pinky.03.R", "metarig/Skeleton3D:f_ring.01.L", "metarig/Skeleton3D:f_ring.01.R", "metarig/Skeleton3D:f_ring.02.L", "metarig/Skeleton3D:f_ring.02.R", "metarig/Skeleton3D:f_ring.03.L", "metarig/Skeleton3D:f_ring.03.R", "metarig/Skeleton3D:forearm.L", "metarig/Skeleton3D:forearm.R", "metarig/Skeleton3D:hand.L", "metarig/Skeleton3D:hand.R", "metarig/Skeleton3D:palm.01.L", "metarig/Skeleton3D:palm.01.R", "metarig/Skeleton3D:palm.02.L", "metarig/Skeleton3D:palm.02.R", "metarig/Skeleton3D:palm.03.L", "metarig/Skeleton3D:palm.03.R", "metarig/Skeleton3D:palm.04.L", "metarig/Skeleton3D:palm.04.R", "metarig/Skeleton3D:shoulder.L", "metarig/Skeleton3D:shoulder.R", "metarig/Skeleton3D:spine.001", "metarig/Skeleton3D:spine.002", "metarig/Skeleton3D:spine.003", "metarig/Skeleton3D:spine.005", "metarig/Skeleton3D:spine.006", "metarig/Skeleton3D:thumb.01.L", "metarig/Skeleton3D:thumb.01.R", "metarig/Skeleton3D:thumb.02.L", "metarig/Skeleton3D:thumb.02.R", "metarig/Skeleton3D:thumb.03.L", "metarig/Skeleton3D:thumb.03.R", "metarig/Skeleton3D:upper_arm.L", "metarig/Skeleton3D:upper_arm.R"]
+sync = true
+fadein_time = 0.2
+fadeout_time = 0.2
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hpwo0"]
+animation = &"Character_Idle2"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_om7xx"]
+animation = &"Character_Walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_32upq"]
+xfade_time = 0.3
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_g6mlw"]
+xfade_time = 0.39
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_17fh3"]
+xfade_time = 0.34
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_7sutl"]
+states/Character_Idle2/node = SubResource("AnimationNodeAnimation_hpwo0")
+states/Character_Idle2/position = Vector2(392, 100)
+states/Character_Walk/node = SubResource("AnimationNodeAnimation_om7xx")
+states/Character_Walk/position = Vector2(683, 100)
+transitions = ["Start", "Character_Idle2", SubResource("AnimationNodeStateMachineTransition_32upq"), "Character_Idle2", "Character_Walk", SubResource("AnimationNodeStateMachineTransition_g6mlw"), "Character_Walk", "Character_Idle2", SubResource("AnimationNodeStateMachineTransition_17fh3")]
+graph_offset = Vector2(-53, -16)
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_idpod"]
+animation = &"Character_Projectile"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_l1x5l"]
+filters = ["Meat_Female/Skeleton3D:Chest", "Meat_Female/Skeleton3D:Head", "Meat_Female/Skeleton3D:forearm.L", "Meat_Female/Skeleton3D:forearm.R", "Meat_Female/Skeleton3D:hand.L", "Meat_Female/Skeleton3D:hand.R", "Meat_Female/Skeleton3D:shoulder.L", "Meat_Female/Skeleton3D:shoulder.R", "Meat_Female/Skeleton3D:spine.002", "Meat_Female/Skeleton3D:spine.005", "Meat_Female/Skeleton3D:upper_arm.L", "Meat_Female/Skeleton3D:upper_arm.R"]
+sync = true
+fadein_time = 0.2
+fadeout_time = 0.2
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_fnd76"]
+filters = ["Meat_Female/Skeleton3D:Chest", "Meat_Female/Skeleton3D:Head", "Meat_Female/Skeleton3D:Hips", "Meat_Female/Skeleton3D:forearm.L", "Meat_Female/Skeleton3D:forearm.R", "Meat_Female/Skeleton3D:hand.L", "Meat_Female/Skeleton3D:hand.R", "Meat_Female/Skeleton3D:shoulder.L", "Meat_Female/Skeleton3D:shoulder.R", "Meat_Female/Skeleton3D:spine.001", "Meat_Female/Skeleton3D:spine.002", "Meat_Female/Skeleton3D:spine.005", "Meat_Female/Skeleton3D:upper_arm.L", "Meat_Female/Skeleton3D:upper_arm.R"]
+sync = true
+fadein_time = 0.2
+fadeout_time = 0.2
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_l52ty"]
+animation = &"Character_Special"
+
+[sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_taapl"]
+filters = ["Meat_Female/Skeleton3D:Chest", "Meat_Female/Skeleton3D:Head", "Meat_Female/Skeleton3D:Hips", "Meat_Female/Skeleton3D:forearm.L", "Meat_Female/Skeleton3D:forearm.R", "Meat_Female/Skeleton3D:hand.L", "Meat_Female/Skeleton3D:hand.R", "Meat_Female/Skeleton3D:shoulder.L", "Meat_Female/Skeleton3D:shoulder.R", "Meat_Female/Skeleton3D:spine.001", "Meat_Female/Skeleton3D:spine.002", "Meat_Female/Skeleton3D:spine.005", "Meat_Female/Skeleton3D:upper_arm.L", "Meat_Female/Skeleton3D:upper_arm.R"]
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_iccki"]
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_scj7o"]
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_1i1rm"]
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_y0nb3"]
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_43mvl"]
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_nrhbv"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_t0tf6"]
+nodes/AttackLeft/node = SubResource("AnimationNodeAnimation_rgjwp")
+nodes/AttackLeft/position = Vector2(-440, 580)
+nodes/AttackRight/node = SubResource("AnimationNodeAnimation_b12cm")
+nodes/AttackRight/position = Vector2(-220, 580)
+nodes/Block/node = SubResource("AnimationNodeAnimation_pcb33")
+nodes/Block/position = Vector2(-620, 580)
+nodes/BlockShot/node = SubResource("AnimationNodeOneShot_fpfb7")
+nodes/BlockShot/position = Vector2(-580, 240)
+nodes/LeftAttackShot/node = SubResource("AnimationNodeOneShot_jjxqn")
+nodes/LeftAttackShot/position = Vector2(-400, 240)
+nodes/Movement/node = SubResource("AnimationNodeStateMachine_7sutl")
+nodes/Movement/position = Vector2(-940, 60)
+nodes/Projectile/node = SubResource("AnimationNodeAnimation_idpod")
+nodes/Projectile/position = Vector2(20, 580)
+nodes/ProjectileShot/node = SubResource("AnimationNodeOneShot_l1x5l")
+nodes/ProjectileShot/position = Vector2(20, 240)
+nodes/RightAttackShot/node = SubResource("AnimationNodeOneShot_fnd76")
+nodes/RightAttackShot/position = Vector2(-200, 240)
+nodes/Special/node = SubResource("AnimationNodeAnimation_l52ty")
+nodes/Special/position = Vector2(240, 580)
+nodes/SpecialShot/node = SubResource("AnimationNodeOneShot_taapl")
+nodes/SpecialShot/position = Vector2(240, 240)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_nrhbv")
+nodes/TimeScale/position = Vector2(-720, 60)
+"nodes/TimeScale 2/node" = SubResource("AnimationNodeTimeScale_iccki")
+"nodes/TimeScale 2/position" = Vector2(-400, 460)
+"nodes/TimeScale 3/node" = SubResource("AnimationNodeTimeScale_scj7o")
+"nodes/TimeScale 3/position" = Vector2(-580, 460)
+"nodes/TimeScale 4/node" = SubResource("AnimationNodeTimeScale_1i1rm")
+"nodes/TimeScale 4/position" = Vector2(260, 460)
+"nodes/TimeScale 5/node" = SubResource("AnimationNodeTimeScale_y0nb3")
+"nodes/TimeScale 5/position" = Vector2(20, 460)
+"nodes/TimeScale 6/node" = SubResource("AnimationNodeTimeScale_43mvl")
+"nodes/TimeScale 6/position" = Vector2(-180, 460)
+nodes/output/position = Vector2(600, 60)
+node_connections = [&"output", 0, &"SpecialShot", &"BlockShot", 0, &"TimeScale", &"BlockShot", 1, &"TimeScale 3", &"LeftAttackShot", 0, &"BlockShot", &"LeftAttackShot", 1, &"TimeScale 2", &"ProjectileShot", 0, &"RightAttackShot", &"ProjectileShot", 1, &"TimeScale 5", &"RightAttackShot", 0, &"LeftAttackShot", &"RightAttackShot", 1, &"TimeScale 6", &"SpecialShot", 0, &"ProjectileShot", &"SpecialShot", 1, &"TimeScale 4", &"TimeScale", 0, &"Movement", &"TimeScale 2", 0, &"AttackLeft", &"TimeScale 3", 0, &"Block", &"TimeScale 4", 0, &"Special", &"TimeScale 5", 0, &"Projectile", &"TimeScale 6", 0, &"AttackRight"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_8rgjv"]
+radius = 10.0
+
+[sub_resource type="Gradient" id="Gradient_d2f5e"]
+offsets = PackedFloat32Array(0.318584, 1)
+colors = PackedColorArray(0.240625, 0.240625, 0.240625, 1, 0.68, 0.68, 0.68, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_v3f71"]
+gradient = SubResource("Gradient_d2f5e")
+
+[sub_resource type="Curve" id="Curve_o2ta8"]
+max_value = 2.0
+_data = [Vector2(0, 0.215031), 0.0, 0.0, 0, 0, Vector2(1, 2), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_d101t"]
+curve = SubResource("Curve_o2ta8")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_d7wsr"]
+particle_flag_rotate_y = true
+gravity = Vector3(0, 0, 0)
+angle_min = -72.5
+angle_max = 66.0
+scale_min = 0.9
+scale_curve = SubResource("CurveTexture_d101t")
+color_ramp = SubResource("GradientTexture1D_v3f71")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bh2fb"]
+transparency = 1
+diffuse_mode = 3
+specular_mode = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("6_tpgap")
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_o7c0m"]
+material = SubResource("StandardMaterial3D_bh2fb")
+
+[node name="Character" type="CharacterBody3D" groups=["Character"]]
+process_mode = 1
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_ldc1x")
+special = ExtResource("2_5d13c")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.986465, 0)
+shape = SubResource("CapsuleShape3D_g0x83")
+
+[node name="ProjectilePlacement" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.359086, 1.2, -0.325848)
+
+[node name="ProjectileAimer" type="RayCast3D" parent="."]
+transform = Transform3D(-0.6, 0, -5.24537e-08, 0, 0.6, 0, 5.24537e-08, 0, -0.6, 0.359086, 1.2, -0.325848)
+target_position = Vector3(0, 0, 25)
+collision_mask = 3
+
+[node name="CharacterAnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeBlendTree_t0tf6")
+advance_expression_base_node = NodePath("..")
+process_callback = 0
+parameters/BlockShot/active = false
+parameters/BlockShot/internal_active = false
+parameters/BlockShot/request = 0
+parameters/LeftAttackShot/active = false
+parameters/LeftAttackShot/internal_active = false
+parameters/LeftAttackShot/request = 0
+parameters/ProjectileShot/active = false
+parameters/ProjectileShot/internal_active = false
+parameters/ProjectileShot/request = 0
+parameters/RightAttackShot/active = false
+parameters/RightAttackShot/internal_active = false
+parameters/RightAttackShot/request = 0
+parameters/SpecialShot/active = false
+parameters/SpecialShot/internal_active = false
+parameters/SpecialShot/request = 0
+parameters/TimeScale/scale = 1.0
+"parameters/TimeScale 2/scale" = 1.5
+"parameters/TimeScale 3/scale" = 1.0
+"parameters/TimeScale 4/scale" = 0.75
+"parameters/TimeScale 5/scale" = 1.5
+"parameters/TimeScale 6/scale" = 1.5
+script = ExtResource("5_hokk0")
+
+[node name="ControllerPositioner" type="Node3D" parent="."]
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="ProjectileTimer" type="Timer" parent="Timers"]
+process_callback = 0
+one_shot = true
+
+[node name="SpecialMeleeTimer" type="Timer" parent="Timers"]
+process_callback = 0
+wait_time = 5.0
+one_shot = true
+
+[node name="RespawnTimer" type="Timer" parent="Timers"]
+process_mode = 3
+process_callback = 0
+wait_time = 4.0
+one_shot = true
+
+[node name="SlowTimer" type="Timer" parent="Timers"]
+process_callback = 0
+wait_time = 5.0
+one_shot = true
+
+[node name="DodgeTimer" type="Timer" parent="Timers"]
+process_callback = 0
+wait_time = 0.4
+one_shot = true
+
+[node name="DodgeCooldown" type="Timer" parent="Timers"]
+process_callback = 0
+wait_time = 2.0
+one_shot = true
+
+[node name="InvincibilityTimer" type="Timer" parent="Timers"]
+process_callback = 0
+wait_time = 2.0
+one_shot = true
+
+[node name="PunchTimer" type="Timer" parent="Timers"]
+process_callback = 0
+wait_time = 0.3
+one_shot = true
+
+[node name="HealDelayTimer" type="Timer" parent="Timers"]
+process_callback = 0
+one_shot = true
+
+[node name="SlipTimer" type="Timer" parent="Timers"]
+wait_time = 0.5
+one_shot = true
+
+[node name="ImpulseTimer" type="Timer" parent="Timers"]
+one_shot = true
+
+[node name="Sounds" type="Node3D" parent="."]
+
+[node name="PunchSound" type="AudioStreamPlayer3D" parent="Sounds"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.33289, -0.439516)
+stream = ExtResource("6_savac")
+
+[node name="HealDetectArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.28944, 0)
+collision_layer = 0
+collision_mask = 2
+input_ray_pickable = false
+script = ExtResource("7_e3b4m")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HealDetectArea"]
+shape = SubResource("SphereShape3D_8rgjv")
+
+[node name="DodgeParticle" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 50
+lifetime = 2.0
+one_shot = true
+interpolate = false
+process_material = SubResource("ParticleProcessMaterial_d7wsr")
+draw_pass_1 = SubResource("QuadMesh_o7c0m")
+
+[connection signal="animation_finished" from="CharacterAnimationTree" to="." method="_on_animation_tree_animation_finished"]
+[connection signal="timeout" from="Timers/ProjectileTimer" to="." method="_on_projectile_timer_timeout"]
+[connection signal="timeout" from="Timers/RespawnTimer" to="." method="respawn"]
+[connection signal="timeout" from="Timers/SlowTimer" to="." method="end_slow_effect"]
+[connection signal="timeout" from="Timers/DodgeTimer" to="." method="stop_dodge"]
+[connection signal="timeout" from="Timers/InvincibilityTimer" to="." method="_on_invincibility_timer_timeout"]
+[connection signal="timeout" from="Timers/PunchTimer" to="." method="_on_punch_timer_timeout"]
+[connection signal="timeout" from="Timers/HealDelayTimer" to="." method="heal"]
+[connection signal="timeout" from="Timers/ImpulseTimer" to="." method="_on_impulse_timer_timeout"]
+[connection signal="body_entered" from="HealDetectArea" to="HealDetectArea" method="_on_body_entered"]
+[connection signal="body_exited" from="HealDetectArea" to="HealDetectArea" method="_on_body_exited"]
