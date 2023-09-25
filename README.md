@@ -1,9 +1,7 @@
 # MarketOFMayhem
  A 3D arena brawler
 
-I slapped on a GNU GPL v3 license to this project. If I understand correctly, this gives anyone the right to do what
-you want to the project but NOT use it for commercial purposes. Please let me know if this is incorrect. If you
-decide to contribute, feel free to add a pull request. I'd love to see this thing get updated!
+If you decide to contribute, feel free to add a pull request. I'd love to see this thing get updated!
 
 Due to my 'humerous' naming of things, this project is a bit PG-13.
 
